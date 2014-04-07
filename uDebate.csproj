@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E01B062E-190E-4A24-ACC2-45A494FE7061}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DotNetNuke.Modules.uDebate</RootNamespace>
+    <AssemblyName>uDebate</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>uDebate.xml</DocumentationFile>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>uDebate.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ATC, Version=1.0.3264.31226, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="ATC.WebControls, Version=1.0.3264.31227, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="ATC.WebControls.TreeView, Version=1.0.3264.29924, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="DotNetNuke.Web, Version=6.0.1.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="itextsharp, Version=5.2.1.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="DotNetNuke, Version=4.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\DotNetNuke.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2012.1.411.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="DotNetNuke" />
+    <Import Include="DotNetNuke.Common" />
+    <Import Include="DotNetNuke.Common.Utilities" />
+    <Import Include="DotNetNuke.Data" />
+    <Import Include="DotNetNuke.Entities" />
+    <Import Include="DotNetNuke.Entities.Tabs" />
+    <Import Include="DotNetNuke.Framework" />
+    <Import Include="DotNetNuke.Modules" />
+    <Import Include="DotNetNuke.Security" />
+    <Import Include="DotNetNuke.Services" />
+    <Import Include="DotNetNuke.Services.Exceptions" />
+    <Import Include="DotNetNuke.Services.Localization" />
+    <Import Include="DotNetNuke.UI" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\AttachmentController.cs" />
+    <Compile Include="Components\AttachmentInfo.cs" />
+    <Compile Include="Components\FeatureController.cs" />
+    <Compile Include="Controls\AttachmentControl.ascx.cs">
+      <DependentUpon>AttachmentControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\AttachmentControl.ascx.designer.cs">
+      <DependentUpon>AttachmentControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ForumBreadcrumb.ascx.cs">
+      <DependentUpon>ForumBreadcrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ForumBreadcrumb.ascx.designer.cs">
+      <DependentUpon>ForumBreadcrumb.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ThreadsPostsTreeViewSummary.ascx.cs">
+      <DependentUpon>ThreadsPostsTreeViewSummary.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreadsPostsTreeViewSummary.ascx.designer.cs">
+      <DependentUpon>ThreadsPostsTreeViewSummary.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Edit.ascx.cs">
+      <DependentUpon>Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Edit.ascx.designer.cs">
+      <DependentUpon>Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataProvider.cs" />
+    <Content Include="Documentation\Documentation.css" />
+    <Content Include="Documentation\Documentation.html" />
+    <Compile Include="EditForum.ascx.cs">
+      <DependentUpon>EditForum.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditForum.ascx.designer.cs">
+      <DependentUpon>EditForum.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ThreadsPostsPrintPost.aspx.cs">
+      <DependentUpon>ThreadsPostsPrintPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreadsPostsPrintPost.aspx.designer.cs">
+      <DependentUpon>ThreadsPostsPrintPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThreadsPostsPrintTreeView.aspx.cs">
+      <DependentUpon>ThreadsPostsPrintTreeView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreadsPostsPrintTreeView.aspx.designer.cs">
+      <DependentUpon>ThreadsPostsPrintTreeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TopicsThreadsByGroupView.ascx.cs">
+      <DependentUpon>TopicsThreadsByGroupView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopicsThreadsByGroupView.ascx.designer.cs">
+      <DependentUpon>TopicsThreadsByGroupView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ForumsTopicsView.ascx.cs">
+      <DependentUpon>ForumsTopicsView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForumsTopicsView.ascx.designer.cs">
+      <DependentUpon>ForumsTopicsView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\DataProviders\SqlDataProvider\SqlDataProvider.cs" />
+    <Compile Include="Settings.ascx.designer.cs">
+      <DependentUpon>Settings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.ascx.cs">
+      <DependentUpon>Settings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreadsPostsTreeView.ascx.cs">
+      <DependentUpon>ThreadsPostsTreeView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThreadsPostsTreeView.ascx.designer.cs">
+      <DependentUpon>ThreadsPostsTreeView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uDebateSettingsBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uDebateModuleBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_LocalResources\Edit.ascx.resx" />
+    <None Include="App_LocalResources\Settings.ascx.resx">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App_LocalResources\ThreadsPostsTreeView.ascx.resx" />
+    <None Include="BuildScripts\ModulePackage.targets" />
+    <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
+    <None Include="Providers\DataProviders\SqlDataProvider\00.00.01.SqlDataProvider" />
+    <None Include="uDebate.dnn" />
+    <None Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
+    <None Include="module.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\AttachmentControl.ascx" />
+    <Content Include="Edit.ascx" />
+    <Content Include="EditForum.ascx" />
+    <Content Include="images\alter_icon.gif" />
+    <Content Include="images\alter_icon_off.gif" />
+    <Content Include="images\alter_icon_on.gif" />
+    <Content Include="images\answer_icon.gif" />
+    <Content Include="images\answer_icon_off.gif" />
+    <Content Include="images\answer_icon_on.gif" />
+    <Content Include="images\buttons\attachm_norm_gr.gif" />
+    <Content Include="images\buttons\attachm_roll_gr.gif" />
+    <Content Include="images\buttons\button_arrow.png" />
+    <Content Include="images\buttons\button_left2_norm.gif" />
+    <Content Include="images\buttons\button_left2_roll.gif" />
+    <Content Include="images\buttons\button_left_norm.gif" />
+    <Content Include="images\buttons\button_left_roll.gif" />
+    <Content Include="images\buttons\button_middle_norm.gif" />
+    <Content Include="images\buttons\button_middle_roll.gif" />
+    <Content Include="images\buttons\button_right_norm.gif" />
+    <Content Include="images\buttons\button_right_roll.gif" />
+    <Content Include="images\buttons\cancel_norm_gr.gif" />
+    <Content Include="images\buttons\cancel_roll_gr.gif" />
+    <Content Include="images\buttons\contact_norm_gr.gif" />
+    <Content Include="images\buttons\contact_roll_gr.gif" />
+    <Content Include="images\buttons\discussion_norm_gr.gif" />
+    <Content Include="images\buttons\discussion_roll_gr.gif" />
+    <Content Include="images\buttons\email_norm_gr.gif" />
+    <Content Include="images\buttons\email_roll_gr.gif" />
+    <Content Include="images\buttons\forgotpas_norm_gr.gif" />
+    <Content Include="images\buttons\forgotpas_roll_gr.gif" />
+    <Content Include="images\buttons\login_norm_gr.gif" />
+    <Content Include="images\buttons\login_roll_gr.gif" />
+    <Content Include="images\buttons\logout_norm_gr.gif" />
+    <Content Include="images\buttons\logout_roll_gr.gif" />
+    <Content Include="images\buttons\print_norm_gr.gif" />
+    <Content Include="images\buttons\print_roll_gr.gif" />
+    <Content Include="images\buttons\refer_norm_gr.gif" />
+    <Content Include="images\buttons\refer_roll_gr.gif" />
+    <Content Include="images\buttons\register_norm_gr.gif" />
+    <Content Include="images\buttons\register_roll_gr.gif" />
+    <Content Include="images\buttons\remove_norm_gr.gif" />
+    <Content Include="images\buttons\remove_roll_gr.gif" />
+    <Content Include="images\buttons\returntopost_norm_gr.gif" />
+    <Content Include="images\buttons\returntopost_roll_gr.gif" />
+    <Content Include="images\buttons\send_norm_gr.gif" />
+    <Content Include="images\buttons\send_roll_gr.gif" />
+    <Content Include="images\buttons\thread_norm.gif" />
+    <Content Include="images\buttons\thread_norm_gr.gif" />
+    <Content Include="images\buttons\thread_roll.gif" />
+    <Content Include="images\buttons\thread_roll_gr.gif" />
+    <Content Include="images\buttons\upload_norm_gr.gif" />
+    <Content Include="images\buttons\upload_roll_gr.gif" />
+    <Content Include="images\buttons\vote_norm_gr.gif" />
+    <Content Include="images\buttons\vote_roll_gr.gif" />
+    <Content Include="images\buttons_en\attachm_norm_en.gif" />
+    <Content Include="images\buttons_en\attachm_roll_en.gif" />
+    <Content Include="images\buttons_en\cancel_norm_en.gif" />
+    <Content Include="images\buttons_en\cancel_roll_en.gif" />
+    <Content Include="images\buttons_en\discussion_norm_en.gif" />
+    <Content Include="images\buttons_en\discussion_roll_en.gif" />
+    <Content Include="images\buttons_en\email_norm_en.gif" />
+    <Content Include="images\buttons_en\email_roll_en.gif" />
+    <Content Include="images\buttons_en\forgotpas_norm_en.gif" />
+    <Content Include="images\buttons_en\forgotpas_roll_en.gif" />
+    <Content Include="images\buttons_en\login_norm_en.gif" />
+    <Content Include="images\buttons_en\login_roll_en.gif" />
+    <Content Include="images\buttons_en\logout_norm_en.gif" />
+    <Content Include="images\buttons_en\logout_roll_en.gif" />
+    <Content Include="images\buttons_en\print_norm_en.gif" />
+    <Content Include="images\buttons_en\print_roll_en.gif" />
+    <Content Include="images\buttons_en\refer_norm_en.gif" />
+    <Content Include="images\buttons_en\refer_roll_en.gif" />
+    <Content Include="images\buttons_en\register_norm_en.gif" />
+    <Content Include="images\buttons_en\register_roll_en.gif" />
+    <Content Include="images\buttons_en\remove_norm_en.gif" />
+    <Content Include="images\buttons_en\remove_roll_en.gif" />
+    <Content Include="images\buttons_en\returntopost_norm_en.gif" />
+    <Content Include="images\buttons_en\returntopost_roll_en.gif" />
+    <Content Include="images\buttons_en\send_norm_en.gif" />
+    <Content Include="images\buttons_en\send_roll_en.gif" />
+    <Content Include="images\buttons_en\thread_norm.gif" />
+    <Content Include="images\buttons_en\thread_roll.gif" />
+    <Content Include="images\buttons_en\upload_norm_en.gif" />
+    <Content Include="images\buttons_en\upload_roll_en.gif" />
+    <Content Include="images\buttons_en\vote_norm_en.gif" />
+    <Content Include="images\buttons_en\vote_roll_en.gif" />
+    <Content Include="images\comments_icon.gif" />
+    <Content Include="images\comments_icon_off.gif" />
+    <Content Include="images\comments_icon_on.gif" />
+    <Content Include="images\con_icon.gif" />
+    <Content Include="images\con_icon_off.gif" />
+    <Content Include="images\con_icon_on.gif" />
+    <Content Include="images\header1a.gif" />
+    <Content Include="images\header1b.gif" />
+    <Content Include="images\issue_icon.gif" />
+    <Content Include="images\issue_icon_off.gif" />
+    <Content Include="images\issue_icon_on.gif" />
+    <Content Include="images\pro_icon.gif" />
+    <Content Include="images\pro_icon_off.gif" />
+    <Content Include="images\pro_icon_on.gif" />
+    <Content Include="images\question_icon.gif" />
+    <Content Include="images\question_icon_off.gif" />
+    <Content Include="images\question_icon_on.gif" />
+    <Content Include="images\TreeLineImages\dash.gif" />
+    <Content Include="images\TreeLineImages\dashminus.gif" />
+    <Content Include="images\TreeLineImages\dashplus.gif" />
+    <Content Include="images\TreeLineImages\i.gif" />
+    <Content Include="images\TreeLineImages\l.gif" />
+    <Content Include="images\TreeLineImages\lminus.gif" />
+    <Content Include="images\TreeLineImages\lplus.gif" />
+    <Content Include="images\TreeLineImages\minus.gif" />
+    <Content Include="images\TreeLineImages\minus2.gif" />
+    <Content Include="images\TreeLineImages\noexpand.gif" />
+    <Content Include="images\TreeLineImages\plus.gif" />
+    <Content Include="images\TreeLineImages\plus2.gif" />
+    <Content Include="images\TreeLineImages\r.gif" />
+    <Content Include="images\TreeLineImages\rminus.gif" />
+    <Content Include="images\TreeLineImages\rplus.gif" />
+    <Content Include="images\TreeLineImages\t.gif" />
+    <Content Include="images\TreeLineImages\tminus.gif" />
+    <Content Include="images\TreeLineImages\tplus.gif" />
+    <Content Include="ThreadsPostsPrintPost.aspx" />
+    <Content Include="ThreadsPostsPrintTreeView.aspx" />
+    <Content Include="TopicsThreadsByGroupView.ascx" />
+    <Content Include="ForumsTopicsView.ascx" />
+    <Content Include="Settings.ascx" />
+    <Content Include="ThreadsPostsTreeView.ascx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51386</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/dnn6/DesktopModules/uDebate</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/dnn6/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <Extension>zip</Extension>
+    <DNNFileName>uDebate</DNNFileName>
+    <PackageName>uDebate</PackageName>
+    <MSBuildCommunityTasksPath>$(MSBuildProjectDirectory)\BuildScripts</MSBuildCommunityTasksPath>
+  </PropertyGroup>
+  <Import Project="BuildScripts\ModulePackage.Targets" />
+  <Target Name="AfterBuild" DependsOnTargets="PackageModule">
+  </Target>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ThreadsPostsTreeView.ascx.el-GR.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ForumsTopicsView.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ForumsTopicsView.ascx.el-GR.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\TopicsThreadsByGroupView.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ForumsTopicsView.ascx.it-IT.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ForumsTopicsView.ascx.hu-HU.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ForumsTopicsView.ascx.es-ES.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ThreadsPostsTreeView.ascx.it-IT.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ThreadsPostsTreeView.ascx.hu-HU.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ThreadsPostsTreeView.ascx.es-ES.resx" />
+    <Content Include="Controls\ForumBreadcrumb.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ThreadsPostsTreeView.ascx.en-GB.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ForumsTopicsView.ascx.en-GB.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Edit.ascx.hu-HU.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Edit.ascx.es-ES.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Edit.ascx.en-GB.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Edit.ascx.it-IT.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Edit.ascx.el-GR.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\App_LocalResources\ForumBreadcrumb.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\App_LocalResources\ForumBreadcrumb.ascx.el-GR.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\App_LocalResources\ForumBreadcrumb.ascx.en-GB.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\App_LocalResources\ForumBreadcrumb.ascx.hu-HU.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\App_LocalResources\ForumBreadcrumb.ascx.it-IT.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\App_LocalResources\ForumBreadcrumb.ascx.es-ES.resx" />
+    <Content Include="ThreadsPostsTreeViewSummary.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ThreadsPostsPrintTreeView.aspx.el-GR.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ThreadsPostsPrintTreeView.aspx.resx" />
+    <Content Include="images\flags\CountryFlags.png" />
+    <Content Include="images\flags\European-Union-Flag.png" />
+    <Content Include="images\flags\european_union_stamp.png" />
+    <Content Include="images\flags\flagbtn_el.png" />
+    <Content Include="images\flags\flagbtn_el_sel.png" />
+    <Content Include="images\flags\flagbtn_es.png" />
+    <Content Include="images\flags\flagbtn_es_sel.png" />
+    <Content Include="images\flags\flagbtn_eu.png" />
+    <Content Include="images\flags\flagbtn_eu_sel.png" />
+    <Content Include="images\flags\flagbtn_hu.png" />
+    <Content Include="images\flags\flagbtn_hu_sel.png" />
+    <Content Include="images\flags\flagbtn_it.png" />
+    <Content Include="images\flags\flagbtn_it_sel.png" />
+    <Content Include="images\flags\flag_european_union.png" />
+    <Content Include="images\flags\Greece-Flag.png" />
+    <Content Include="images\flags\Hungary-Flag.png" />
+    <Content Include="images\flags\Italy-Flag.png" />
+    <Content Include="images\flags\Slovenia-Flag.jpg" />
+    <Content Include="images\flags\Spain-Flag.png" />
+    <Content Include="images\flags\topicflags.png" />
+    <Content Include="images\flags\topicflag_el.png" />
+    <Content Include="images\flags\topicflag_es.png" />
+    <Content Include="images\flags\topicflag_eu.png" />
+    <Content Include="images\flags\topicflag_hu.png" />
+    <Content Include="images\flags\topicflag_it.png" />
+    <Content Include="images\flags\topicflag_sl.png" />
+  </ItemGroup>
+</Project>
